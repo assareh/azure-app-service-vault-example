@@ -14,6 +14,7 @@ This is a minimal sample app that demonstrates how to run a Python Flask applica
 
 For more information, please see the [Python on App Service quickstart](https://docs.microsoft.com/azure/app-service/containers/quickstart-python).
 
-## Contributing
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+## Notes
+* Please note this function will not work properly without an Azure identity assigned. This can be done in the Azure Portal in the [Settings, Identity pane of the App Service](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet), or with az CLI.
+* Please note this function will not work properly without the HashiCorp Vault address and namespace in the app config. This can be done in the Azure Portal in the Settings, Configuration pane of the App Service, or with az CLI. Create an application setting named `VAULT_ADDR` with the address of your Vault instance, and an application setting named `VAULT_NAMESPACE` with the namespace you are using.
+* This function attempts to read a secret from a kv v2 mount located at secret/foo, and renders the value of the key named `key`.
